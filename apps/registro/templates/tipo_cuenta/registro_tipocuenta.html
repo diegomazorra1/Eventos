@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+<div class="container">
+
+
+
+{% block content %}
+
+<ul>
+
+</ul>
+<h4> COMPLETE LA INFORMACION  </h4>
+
+<div class="container">
+
+
+
+<form method="post">
+	{% csrf_token %}
+	{{ form.as_table }}
+<br>
+	<button class="btn btn-primary "type="submit">Guardar</button>
+</form>
+<br>
+<script type="text/javascript">
+$("#id_fecha_corte").datepicker(
+	{format: 'dd/mm/yyyy', header: true, modal: true, footer: true,  uiLibrary: 'bootstrap4', iconsLibrary: 'materialicons', },
+);
+
+
+</script>
+</div>
+
+{% endblock %}

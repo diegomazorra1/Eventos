@@ -1,0 +1,61 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<br>
+<br>
+
+
+
+<div class="container-fluid">
+<h1 class="h3 mb-2 text-gray-800">TIPO DE CUENTAS</h1>
+<p class="mb-4"></a>.</p>
+
+<!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">LISTA DE TIPO DE CUENTAS </h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+
+
+
+        <table class="table table-bordered table table-condensed table table-striped" id="mytable" width="100%" cellspacing="0">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre de tipo de cuenta</th>
+
+
+    </tr>
+  </thead>
+
+
+	<tbody>
+		{% if object_list %}
+		{% for registro in object_list %}
+		<tr>
+			<td>{{ registro.id }}</td>
+			<td>{{ registro.nombre_cuenta}}</td>
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay registros de usuarios </h1>
+		{% endif %}
+	</tbody>
+
+
+</table>
+
+</div>
+</div>
+</div>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+{% endblock%}

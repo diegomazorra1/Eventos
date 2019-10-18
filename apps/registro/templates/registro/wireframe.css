@@ -1,0 +1,75 @@
+.evento{
+  display: grid;
+  border: 0px solid black;
+  grid-template-columns: 180px 1fr;
+  grid-template-rows: 200px;
+  grid-column-gap: 20px;
+}
+
+.item-evento{
+  border: 0px solid black;
+}
+.información{
+  display: grid;
+  border: 0px solid black;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50% 50%;
+  grid-column-gap: 20px;
+}
+.item-información{
+  border: 0px solid black;
+}
+.mas-info {
+  display: grid;
+  border: 0px solid black;
+  grid-template-columns: 3fr 1fr ;
+  grid-template-rows: 1fr ;
+}
+.item-mas-info{
+  border: 0px solid black;
+}
+.detalles{
+  display: grid;
+  grid-template-columns: 1fr ;
+  grid-template-rows: 1fr 1fr 1fr ;
+}
+.item-detalles {
+  border: 0px solid black;
+}
+
+#nombre{
+ border: 0px solid black;
+}
+#descripción{
+ border: 0px solid black;
+}
+#fecha{
+ border: 0px solid black;
+}
+.acciones{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+.item-acciones{
+  border: 0px solid black;
+   display: flex;
+   align-items: center;
+}
+
+.btn-space {
+    margin-right: 5px;
+}
+
+#asistir{
+  justify-content: flex-end;
+  border: 0px solid black;
+}
+#interesado{
+  justify-content: center;
+  border: 0px solid black;
+}
+#rechazar{
+  justify-content: flex-start;
+  border: 0px solid black;
+}
