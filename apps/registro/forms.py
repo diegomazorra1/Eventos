@@ -17,6 +17,7 @@ class EventForm(forms.ModelForm):
         'image',
         'descripcion',
         'tipo',
+        'created_by',
 
 
         ]
@@ -25,6 +26,7 @@ class EventForm(forms.ModelForm):
                 'image': 'Imagen del evento' ,
                 'descripcion': 'Descripción' ,
                 'tipo': 'Tipo' ,
+                'created_by': 'Autor ' ,
 
 
 

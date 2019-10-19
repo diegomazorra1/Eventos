@@ -1,10 +1,12 @@
 from django.urls import path, include
-from .views import EventListView, EventUpdate, asisir_events, rechazar_events, interesados_list, Event_Delete, confirm_events, rechaza_list, confirma_list, interesados_list
+from .views import EventListView, Event_Create, EventUpdate, asisir_events, rechazar_events, interesados_list, Event_Delete, confirm_events, rechaza_list, confirma_list, interesados_list
+from django.contrib.auth.decorators import login_required
+
 
 app_name= "Hola2"
 urlpatterns = [
 
-
+    path('crear/', login_required(Event_Create.as_view()),name='crear'),
     path('lista', EventListView.as_view(),name='lista'),
     path('editar/<int:pk>/', EventUpdate.as_view(),name='editar'),
     path('eliminar/<int:pk>/', Event_Delete.as_view(),name='eliminar'),

@@ -52,6 +52,23 @@
 
       <!-- Nav Item - Dashboard -->
 
+          <!-- Nav Item - Dashboard -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOONE" aria-expanded="true" aria-controls="collapseTwo">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Crear</span></a>
+            </a>
+            <div id="collapseOONE" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header"> Selecciona </h6>
+                <a class="collapse-item" href="{% url 'registro:crear'  %}">Evento</a>
+
+
+              </div>
+            </div>
+          </li>
+
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -72,7 +89,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Selecciona:</h6>
-            <a class="collapse-item" href="{% url 'registro:lista' %}"> Lista de Eventos </a>
+            <a class="collapse-item" href="{% url 'registro:lista'  %}"> Lista de Eventos </a>
             <a class="collapse-item" href="{% url 'registro:confirmados' %}"> Confirmados </a>
             <a class="collapse-item" href="{% url 'registro:intereses' %}"> Lista de intereses </a>
             <a class="collapse-item" href="{% url 'registro:rechazados' %}"> Rechazados </a>
@@ -84,7 +101,7 @@
       <hr class="sidebar-divider">
 
 
-    
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

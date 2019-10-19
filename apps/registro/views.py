@@ -10,6 +10,25 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.shortcuts import render, redirect
+
+
+
+
+@method_decorator(login_required, name='dispatch')
+class Event_Create(LoginRequiredMixin,CreateView):
+    model= Registros
+    form_class = EventForm
+    success_url= reverse_lazy('registro:lista')
+    template_name='registro/create_event.html'
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['created_by'] = self.request.user.id
+        return initial
+
+
+
+
+
 class EventListView(ListView):
     model= Registros
     paginate_by =2

@@ -6,8 +6,6 @@ from django.utils import timezone
 
 
 
-
-
 # Create your models here.
 
 
@@ -22,11 +20,17 @@ class Registros(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
     interested_in = models.ManyToManyField(User,related_name="users_interested", blank=True)
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="events")
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="events", blank=True, null=True)
     not_interested_in = models.ManyToManyField(User,related_name="users_not_interested", blank=True)
     signed_up = models.ManyToManyField(User,related_name="users_assistants", blank=True)
     def __str__(self):
         return '{} '.format(self.id)
+
+#    def save(self,*args, **kwargs):
+    #    self.created_by=user.get_id
+    #    return super(Transaccion, self).save( *args, **kwargs)
+
+
 
 
 
