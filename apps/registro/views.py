@@ -43,23 +43,28 @@ def asisir_events(request,id_page):
 
 
 
-
+    solicitud="Intereses"
     Evento = Registros.objects.get(id=id_page)
     user1 = User.objects.get(id=request.user.id)
 
     print("EVENTO",Evento)
     print("USUARIO",user1)
-
-
-
     queryset1 = Registros.objects.filter(
-    Q(interested_in__username=request.user.username)&
-    Q(id=id_page)
-    )
+    Q(interested_in__username=request.user.username))
     print("  ESTA INTERESADO EN ESTOS ",queryset1)
-    print(Evento)
-    print(user1)
-    #Evento.interested_in.add(user1)
+
+
+    #Q(interested_in__username=request.user.username)&
+    #Q(id=id_page))
+    #print("  ESTA INTERESADO EN ESTOS ",queryset1)
+    #print(Evento)
+    #print(user1)
+    Evento.interested_in.add(user1)
+    Evento.not_interested_in.remove(user1)
+    Evento.signed_up.remove(user1)
+
+
+
 
 
 #    queryset2 = Registros.objects.filter(
@@ -70,14 +75,93 @@ def asisir_events(request,id_page):
 
 #    print("  si el mismo esta interesado en este evento  ",queryset2)
 
-    return render(request, 'banco/inicio.html', {'form':form })
+    return render(request, 'eventos/intereses_list.html', {'queryset1':queryset1, 'solicitud':solicitud } )
+
+
+
+def rechazar_events(request,id_page):
+
+
+
+    solicitud="Rechazados"
+    Evento = Registros.objects.get(id=id_page)
+    user1 = User.objects.get(id=request.user.id)
+
+    print("EVENTO",Evento)
+    print("USUARIO",user1)
+    queryset1 = Registros.objects.filter(
+    Q(not_interested_in__username=request.user.username))
+    print("  ESTA INTERESADO EN ESTOS ",queryset1)
+
+
+    #Q(interested_in__username=request.user.username)&
+    #Q(id=id_page))
+    #print("  ESTA INTERESADO EN ESTOS ",queryset1)
+    #print(Evento)
+    #print(user1)
+    Evento.not_interested_in.add(user1)
+    Evento.interested_in.remove(user1)
+    Evento.signed_up.remove(user1)
+
+
+
+
+
+
+#    queryset2 = Registros.objects.filter(
+#    Q(interested_in__username=id_page) ==
+#    request.user.username
+#    )
+
+
+#    print("  si el mismo esta interesado en este evento  ",queryset2)
+
+    return render(request, 'eventos/intereses_list.html', {'queryset1':queryset1,'solicitud':solicitud } )
+
+
+
+def confirm_events(request,id_page):
+
+
+
+    solicitud="Confirmados"
+    Evento = Registros.objects.get(id=id_page)
+    user1 = User.objects.get(id=request.user.id)
+
+    print("EVENTO",Evento)
+    print("USUARIO",user1)
+    queryset1 = Registros.objects.filter(
+    Q(signed_up__username=request.user.username))
+    print("  ESTA INTERESADO EN ESTOS ",queryset1)
+
+
+    #Q(interested_in__username=request.user.username)&
+    #Q(id=id_page))
+    #print("  ESTA INTERESADO EN ESTOS ",queryset1)
+    #print(Evento)
+    #print(user1)
+    Evento.signed_up.add(user1)
+    Evento.not_interested_in.remove(user1)
+    Evento.interested_in.remove(user1)
+
+
+    return render(request, 'eventos/intereses_list.html', {'queryset1':queryset1,'solicitud':solicitud } )
+
+
+
+
+
+
+
+
+
 
 
 
 
 
 def interesados_list(request):
-
+    solicitud="Intereses"
     queryset1 = Registros.objects.filter(
     Q(interested_in__username=request.user.username))
     print("  ESTA INTERESADO EN ESTOS ",queryset1)
@@ -93,4 +177,44 @@ def interesados_list(request):
 
 #    print("  si el mismo esta interesado en este evento  ",queryset2)
 
-    return render(request, 'eventos/intereses_list.html', {'queryset1':queryset1 })
+    return render(request, 'eventos/intereses_list.html', {'queryset1':queryset1,'solicitud':solicitud  })
+
+
+def confirma_list(request):
+    solicitud="Confirmados"
+    queryset1 = Registros.objects.filter(
+    Q(signed_up__username=request.user.username))
+    print("  ESTA INTERESADO EN ESTOS ",queryset1)
+
+    #Evento.interested_in.add(user1)
+
+
+#    queryset2 = Registros.objects.filter(
+#    Q(interested_in__username=id_page) ==
+#    request.user.username
+#    )
+
+
+#    print("  si el mismo esta interesado en este evento  ",queryset2)
+
+    return render(request, 'eventos/intereses_list.html', {'queryset1':queryset1,'solicitud':solicitud })
+
+
+def rechaza_list(request):
+    solicitud="Rechazados"
+    queryset1 = Registros.objects.filter(
+    Q(not_interested_in__username=request.user.username))
+    print("  ESTA INTERESADO EN ESTOS ",queryset1)
+
+    #Evento.interested_in.add(user1)
+
+
+#    queryset2 = Registros.objects.filter(
+#    Q(interested_in__username=id_page) ==
+#    request.user.username
+#    )
+
+
+#    print("  si el mismo esta interesado en este evento  ",queryset2)
+
+    return render(request, 'eventos/intereses_list.html', {'queryset1':queryset1,'solicitud':solicitud })

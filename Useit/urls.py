@@ -28,12 +28,12 @@ urlpatterns = [
     path('usuarios/', include ('apps.usuario.urls', namespace="usuario")),
     path('registros/', include ('apps.registro.urls', namespace="registro")),
 
-    path('', auth_views.LoginView.as_view(template_name='login/login.html'), name='login'),
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='login/login.html'), name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
-    #path('accounts/reset/password_reset', auth_views.PasswordResetView.as_view(), name= 'password_reset'),
+    path('accounts/reset/password_reset', auth_views.PasswordResetView.as_view(), name= 'password_reset'),
     #auth_views.PasswordResetForm.as_view(),
-    #path('accounts/reset/password_reset_confirm', auth_views.PasswordChangeDoneView.as_view(), name= 'password_reset_done'),
-    #path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name= 'password_reset_confirm'),
-    #path('accounts/reset/done', auth_views. PasswordResetCompleteView.as_view(), name= 'password_reset_complete'),
+    path('accounts/reset/password_reset_confirm', auth_views.PasswordChangeDoneView.as_view(), name= 'password_reset_done'),
+    path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name= 'password_reset_confirm'),
+    path('accounts/reset/done', auth_views. PasswordResetCompleteView.as_view(), name= 'password_reset_complete'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

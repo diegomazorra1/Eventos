@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 
-LOGIN_REDIRECT_URL = reverse_lazy('usuario:inicio')
+LOGIN_REDIRECT_URL = reverse_lazy('registro:lista')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
 
@@ -138,3 +138,12 @@ STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'ingdiegomazorra@gmail.com'
+EMAIL_HOST_PASSWORD = 'ingenieria3'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

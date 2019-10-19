@@ -48,9 +48,9 @@
               </div>
             </div>
             <div class="item-información acciones">
-              <div class="item-acciones " id="asistir"><a class="btn btn-success " href="{% url  'registro:asiste' page.id  %}"> Asistir </a></div>
-              <div class="item-acciones" id="interesado"><a class="btn btn-warning" href="#"> Interesado </a></div>
-              <div class="item-acciones" id="rechazar"><a class="btn btn-danger" href="#"> Rechazar </a></div>
+              <div class="item-acciones " id="asistir"><a class="btn btn-success " href="{% url  'registro:confirma' page.id  %}"> Asistir </a></div>
+              <div class="item-acciones" id="interesado"><a class="btn btn-warning" href="{% url  'registro:asiste' page.id  %}"> Interesado </a></div>
+              <div class="item-acciones" id="rechazar"><a class="btn btn-danger" href="{% url  'registro:rechaza' page.id  %}"> Rechazar </a></div>
             </div>
           </div>
         </div>
